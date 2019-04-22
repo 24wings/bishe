@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>买家登录</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="floating">用户名</ion-label>
+    <ion-input [(ngModel)]="username" [placeholder]="defaultUsername"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">密码</ion-label>
+    <ion-input [(ngModel)]="password" type="password" [placeholder]="defaultPassword"></ion-input>
+  </ion-item>
+
+
+  <ion-button [expand]="'full'" (click)="login()">登录</ion-button>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="goBuySignup()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

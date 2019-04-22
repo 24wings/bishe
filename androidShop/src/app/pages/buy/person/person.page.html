@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>个人信息</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">用户名</ion-label>
+    <ion-input [(ngModel)]="username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">密码</ion-label>
+    <ion-input [(ngModel)]="password" type="password"></ion-input>
+  </ion-item>
+
+
+  <ion-button [expand]="'full'" (click)="save()">保存</ion-button>
+
+  <ion-button [expand]="'full'" [type]="'danger'" (click)="logout()">退出</ion-button>
+
+</ion-content>

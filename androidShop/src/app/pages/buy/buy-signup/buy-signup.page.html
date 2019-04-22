@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>买家注册</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">用户名</ion-label>
+    <ion-input [placeholder]="defaultUsername"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">密码</ion-label>
+    <ion-input type="password" [placeholder]="defaultPassword"></ion-input>
+  </ion-item>
+
+  <ion-button [expand]="'full'" (click)="signup()">登录</ion-button>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "androidShop",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

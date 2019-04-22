@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>历史订单</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let p of products">
+    <ion-card-header>
+      <ion-card-subtitle>{{p.Title}}</ion-card-subtitle>
+      <!-- <ion-card-title>Card Title</ion-card-title> -->
+    </ion-card-header>
+    <ion-card-content style="    display: flex;justify-content: space-between;">
+      <div>
+        <img [src]="p.PictUrl" style="max-width: 50px" alt="">
+      </div>
+      <div>
+        <div style="display: flex;    text-decoration: line-through;">{{p.ZkFinalPrice}}￥</div>
+
+        <div style="display: flex;color: red;">{{p.ReservePrice}}￥</div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
