@@ -9,9 +9,10 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CartService } from './services/CartService';
+import { ProductPraramModal } from './pages/sell/product-add/product-add.page';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ProductPraramModal],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
@@ -20,6 +21,6 @@ import { CartService } from './services/CartService';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     CartService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, ProductPraramModal]
 })
 export class AppModule { }

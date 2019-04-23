@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>添加产品</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">产品名称</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>款式</ion-label>
+    <ion-select value="brown" okText="确认" cancelText="取消">
+      <ion-select-option value="brown">Brown</ion-select-option>
+      <ion-select-option value="blonde">Blonde</ion-select-option>
+      <ion-select-option value="black">Black</ion-select-option>
+      <ion-select-option value="red">Red</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>颜色</ion-label>
+    <ion-select value="brown" okText="确认" cancelText="取消">
+      <ion-select-option value="white">白色</ion-select-option>
+      <ion-select-option value="black">黑色</ion-select-option>
+      <ion-select-option value="red">红色</ion-select-option>
+      <ion-select-option value="green">绿色</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">单价</ion-label>
+    <ion-input type="number"></ion-input>
+  </ion-item>
+  <ion-item *ngFor="let p of paramList">
+    <ion-label position="floating">{{p.name}}</ion-label>
+    <ion-input [value]="p.value"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="openAddParamModal()">
+      <ion-icon slot="start" name="star"></ion-icon>
+      添加参数
+    </ion-button>
+  </ion-item>
+
+
+  <ion-button [expand]="'full'" (click)="submit()">提交</ion-button>
+
+</ion-content>

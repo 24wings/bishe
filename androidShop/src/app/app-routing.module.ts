@@ -13,6 +13,8 @@ const routes: Routes = [
   { path: 'buy/buy-order', loadChildren: './pages/buy/buy-order/buy-order.module#BuyOrderPageModule' },
   { path: 'buy/tabs', loadChildren: './pages/buy/tabs/tabs.module#TabsPageModule' },
   { path: 'sell-home', loadChildren: './pages/sell/sell-home/sell-home.module#SellHomePageModule' },
+  { path: 'product-manage', loadChildren: './pages/sell/product-manage/product-manage.module#ProductManagePageModule' },
+  { path: 'product-add', loadChildren: './pages/sell/product-add/product-add.module#ProductAddPageModule' },
 
  
 

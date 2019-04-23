@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>商品管理</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider class="t-header" color="light" *ngIf="false"> </ion-item-divider>
+  <div class="product">
+    <ion-row wrap>
+      <ion-col tappable size="6" *ngFor="let p of products">
+        <img src="{{p.PictUrl}}" alt="" />
+        <p>{{p.Title}}</p>
+        <div class="list-price buy">
+          <span class="price-new"><i>￥</i>{{p.ZkFinalPrice}}</span>
+          <i class="del">￥<span>{{p.ReservePrice}}</span></i>
+
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="'/product-add'">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
