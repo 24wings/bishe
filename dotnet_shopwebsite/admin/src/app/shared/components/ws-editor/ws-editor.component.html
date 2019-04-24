@@ -27,6 +27,15 @@
               <dynamic-cell [(formData)]="formData" [item]="item"></dynamic-cell>
             </div>
           </ng-container>
+          <ng-container *ngSwitchCase="'wsImage'">
+            <dynamic-cell [(formData)]="formData" [item]="item"></dynamic-cell>
+          </ng-container>
+          <ng-container *ngSwitchCase="'dxLookup'">
+            <dx-lookup [displayExpr]="item.editorOptions.dxLookup.displayExpr"
+              [valueExpr]="item.editorOptions.dxLookup.valueExpr" [(value)]="formData[item.dataField]"
+              [dataSource]="item.editorOptions.dxLookup.dataSource">
+            </dx-lookup>
+          </ng-container>
           <ng-container *ngSwitchDefault></ng-container>
         </ng-container>
       </dxi-item>

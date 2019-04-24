@@ -18,7 +18,7 @@ export let orgView: TreeListView = {
     dataSource: new DataSource({
         store: AspNetData.createStore({
             key: "orgId",
-            loadUrl: environment.ip + "/api/Hk/org",
+            loadUrl: environment.ip + "/api/Hk/org/load",
             insertUrl: environment.ip + "/api/Hk/org",
             updateUrl: environment.ip + "/api/Hk/org",
             deleteUrl: environment.ip + "/api/Hk/org",

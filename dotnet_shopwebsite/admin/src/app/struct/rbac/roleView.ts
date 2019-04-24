@@ -15,7 +15,7 @@ export let roleView: View = {
   dataSource: new DataSource({
     store: AspNetData.createStore({
       key: "id",
-      loadUrl: environment.ip + "/api/Hk/role",
+      loadUrl: environment.ip + "/api/Hk/role/load",
       insertUrl: environment.ip + "/api/Hk/role",
       updateUrl: environment.ip + "/api/Hk/role",
       deleteUrl: environment.ip + "/api/Hk/role",
@@ -59,7 +59,7 @@ export let roleView: View = {
           dataSource: new DataSource({
             store: AspNetData.createStore({
               key: "id",
-              loadUrl: environment.ip + "/api/Hk/menu",
+              loadUrl: environment.ip + "/api/Hk/menu/load",
               insertUrl: environment.ip + "/api/Hk/menu",
               updateUrl: environment.ip + "/api/Hk/menu",
               deleteUrl: environment.ip + "/api/Hk/menu",

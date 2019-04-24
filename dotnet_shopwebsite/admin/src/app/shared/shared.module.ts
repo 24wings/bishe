@@ -20,7 +20,9 @@ import {
   DxFormModule,
   DxRadioGroupModule,
   DxTreeViewModule,
-  DxDropDownBoxModule
+  DxDropDownBoxModule,
+  DxFileUploaderModule,
+  DxLookupModule
 } from "devextreme-angular";
 import { CommonModule } from "@angular/common";
 // import { HostService } from "./services/host.service";
@@ -43,6 +45,7 @@ import { DxValidatorModule } from "devextreme-angular/ui/validator";
 import { DxValidationGroupModule } from "devextreme-angular/ui/validation-group";
 import { MyHttpService } from './services/my-http.service';
 import { RcxhApiService } from './services/rcxh-api.service';
+import { WsImageCellComponent } from './components/cells/ws-image-cell/ws-image-cell.component';
 
 @NgModule({
   imports: [
@@ -72,7 +75,9 @@ import { RcxhApiService } from './services/rcxh-api.service';
     DxTreeViewModule,
     DxDropDownBoxModule,
     DxValidationGroupModule,
-    DxValidatorModule
+    DxValidatorModule,
+    DxFileUploaderModule,
+    DxLookupModule
   ],
   exports: [
     DxTagBoxModule,
@@ -109,6 +114,8 @@ import { RcxhApiService } from './services/rcxh-api.service';
     WsSearchBarComponent,
     DxValidationGroupModule,
     DxValidatorModule,
+    DxFileUploaderModule,
+    DxLookupModule
   ],
   declarations: [
     WsViewComponent,

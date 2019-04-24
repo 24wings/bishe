@@ -137,7 +137,7 @@ export class WsViewComponent {
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
-    if (this.v.viewType == "Table") this.dataGrid.instance.filter([]);
+    // if (this.v.viewType == "Table") this.dataGrid.instance.filter([]);
     if (this.v.viewType == "TreeList") {
       // this.treeList.instance.filter([
       //   "parentId",

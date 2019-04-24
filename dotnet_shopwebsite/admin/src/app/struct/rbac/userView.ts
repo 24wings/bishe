@@ -15,7 +15,7 @@ export let userView: View = {
   dataSource: new DataSource({
     store: AspNetData.createStore({
       key: "id",
-      loadUrl: environment.ip + "/api/Hk/user",
+      loadUrl: environment.ip + "/api/Hk/user/load",
       insertUrl: environment.ip + "/api/Hk/user",
       updateUrl: environment.ip + "/api/Hk/user",
       deleteUrl: environment.ip + "/api/Hk/user",
@@ -72,7 +72,7 @@ export let userView: View = {
         dxTreeView: {
           dataSource: AspNetData.createStore({
             key: "orgId",
-            loadUrl: environment.ip + "/api/Hk/org",
+            loadUrl: environment.ip + "/api/Hk/org/load",
 
           }),
 

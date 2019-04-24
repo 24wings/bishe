@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Wings.Base.Common.Attrivute;
@@ -30,8 +31,8 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        [HttpGet]
-        public object load (DataSourceLoadOptionsBase options) {
+        [HttpGet ("[action]")]
+        public object load (DataSourceLoadOptions options) {
             options.Sort = new [] { new SortingInfo { Selector = "orderBy", Desc = true } };
             return this.load (options, this.db.newsTag);
         }

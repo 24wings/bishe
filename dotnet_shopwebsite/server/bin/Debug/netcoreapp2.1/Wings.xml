@@ -339,6 +339,22 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:Wings.Base.Common.UploadController">
+            <summary>
+            流式上传
+            </summary>
+        </member>
+        <member name="M:Wings.Base.Common.UploadController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Wings.Base.Common.UploadController.upload(Microsoft.AspNetCore.Http.IFormFile,System.String)">
+            <summary>
+            流式上传
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Wings.Base.Common.Entity.TokenInstance">
             <summary>
             token信息
@@ -893,6 +909,12 @@
             Sample for putting object.
             </summary>
         </member>
+        <member name="P:Wings.Base.Common.Services.OSSService.bucketName">
+            <summary>
+            默认存储
+            </summary>
+            <value></value>
+        </member>
         <member name="M:Wings.Base.Common.Services.OSSService.uploadFile(System.IO.Stream,System.String,System.String)">
             <summary>
             上传文件
@@ -931,6 +953,12 @@
             上传文件以md5前缀
             </summary>
             <param name="bucketName"></param>
+        </member>
+        <member name="M:Wings.Base.Common.Services.OSSService.listFiles">
+            <summary>
+            列出文件
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Wings.Base.Common.Services.OSSService.PutObjectFromString(System.String)">
             <summary>
@@ -1093,7 +1121,7 @@
             </summary>
             <param name="_db"></param>
         </member>
-        <member name="M:Wings.Projects.Rcxh.Controllers.CurdController`1.load(DevExtreme.AspNet.Data.DataSourceLoadOptionsBase,Microsoft.EntityFrameworkCore.DbSet{`0})">
+        <member name="M:Wings.Projects.Rcxh.Controllers.CurdController`1.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions,Microsoft.EntityFrameworkCore.DbSet{`0})">
             <summary>
             查询数据
             </summary>
@@ -1195,6 +1223,91 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="T:Wings.Projects.Rcxh.Controllers.ProductController">
+            <summary>
+            组织管理
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductController.#ctor(Wings.Projects.Rcxh.RcxhContext)">
+            <summary>
+            
+            </summary>
+            <param name="_db"></param>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询数据
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductController.insert(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            增加数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductController.remove(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            移除数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductController.update(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            更新
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wings.Projects.Rcxh.Controllers.ProductTagController">
+            <summary>
+            组织管理
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductTagController.#ctor(Wings.Projects.Rcxh.RcxhContext)">
+            <summary>
+            
+            </summary>
+            <param name="_db"></param>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductTagController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询数据
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductTagController.insert(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            增加数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductTagController.remove(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            移除数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductTagController.update(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            更新
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.ProductTagController.loadActiveProductTags(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询有效的产品标签
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
         <member name="T:Wings.Projects.Rcxh.Controllers.Config">
             <summary>
             配置
@@ -1262,7 +1375,7 @@
             </summary>
             <param name="_db"></param>
         </member>
-        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.NewsController.load(DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
+        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.NewsController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
             <summary>
             查询数据
             </summary>
@@ -1301,7 +1414,7 @@
             </summary>
             <param name="_db"></param>
         </member>
-        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.NewsTagController.load(DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
+        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.NewsTagController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
             <summary>
             查询数据
             </summary>
@@ -1340,7 +1453,7 @@
             </summary>
             <param name="_db"></param>
         </member>
-        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.MenuController.load(DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
+        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.MenuController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
             <summary>
             查询数据
             </summary>
@@ -1379,7 +1492,7 @@
             </summary>
             <param name="_db"></param>
         </member>
-        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.OrgController.load(DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
+        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.OrgController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
             <summary>
             查询数据
             </summary>
@@ -1418,7 +1531,7 @@
             </summary>
             <param name="_db"></param>
         </member>
-        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.RoleController.load(DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
+        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.RoleController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
             <summary>
             查询数据
             </summary>
@@ -1457,7 +1570,7 @@
             </summary>
             <param name="_db"></param>
         </member>
-        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.UserController.load(DevExtreme.AspNet.Data.DataSourceLoadOptionsBase)">
+        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.UserController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
             <summary>
             查询数据
             </summary>
@@ -1644,6 +1757,12 @@
         <member name="P:Wings.Projects.Rcxh.RBAC.Entity.User.orgId">
             <summary>
             组织Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.RBAC.Entity.User.createTime">
+            <summary>
+            创建时间
             </summary>
             <value></value>
         </member>
@@ -1841,6 +1960,225 @@
             禁用
             </summary>
         </member>
+        <member name="T:Wings.Projects.Rcxh.Entity.Product.Order">
+            <summary>
+            订单
+            </summary>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.id">
+            <summary>
+            Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.productName">
+            <summary>
+            名字在
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.productImages">
+            <summary>
+            图片
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.createTime">
+            <summary>
+            创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.status">
+            <summary>
+            状态
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.summary">
+            <summary>
+            备注
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.price">
+            <summary>
+            单价
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.num">
+            <summary>
+            数量
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.shouldPayAmount">
+            <summary>
+            应付金额
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.realPayAmount">
+            <summary>
+            实付金额
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Projects.Rcxh.Entity.Product.OrderStatus">
+            <summary>
+            订单状态
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.Product.OrderStatus.Submit">
+            <summary>
+            已提交
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.Product.OrderStatus.Pay">
+            <summary>
+            有效
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.Product.OrderStatus.Fail">
+            <summary>
+            作废
+            </summary>
+        </member>
+        <member name="T:Wings.Projects.Rcxh.Entity.Product.Product">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.id">
+            <summary>
+            Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.name">
+            <summary>
+            名字在
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.images">
+            <summary>
+            图片
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.createTime">
+            <summary>
+            创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.status">
+            <summary>
+            状态
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.summary">
+            <summary>
+            简述
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.price">
+            <summary>
+            价格
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.productTagId">
+            <summary>
+            产品标签Id
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Product.productTag">
+            <summary>
+            产品标签
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Projects.Rcxh.Entity.Product.ProductStatus">
+            <summary>
+            产品状态
+            </summary>
+            
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.Product.ProductStatus.Submit">
+            <summary>
+            已提交
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.Product.ProductStatus.Active">
+            <summary>
+            有效
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.Product.ProductStatus.Fail">
+            <summary>
+            作废
+            </summary>
+        </member>
+        <member name="T:Wings.Projects.Rcxh.Entity.ProductTag">
+            <summary>
+            产品标签
+            </summary>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.ProductTag.id">
+            <summary>
+            ID
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.ProductTag.name">
+            <summary>
+            分类名称
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.ProductTag.createTime">
+            <summary>
+            创建时间
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.ProductTag.orderNo">
+            <summary>
+            排序
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.ProductTag.status">
+            <summary>
+            分类
+            </summary>
+        </member>
+        <member name="T:Wings.Projects.Rcxh.Entity.ProductTagStatus">
+            <summary>
+            产品状态
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.ProductTagStatus.Submitted">
+            <summary>
+            提交
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.ProductTagStatus.Active">
+            <summary>
+            有效
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.Entity.ProductTagStatus.Disabled">
+            <summary>
+            下架
+            </summary>
+        </member>
         <member name="T:Wings.Projects.Rcxh.RcxhContext">
             <summary>
             航空数据环境
@@ -1894,6 +2232,24 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:Wings.Projects.Rcxh.RcxhContext.products">
+            <summary>
+            产品
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.RcxhContext.orders">
+            <summary>
+            订单
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.RcxhContext.productTags">
+            <summary>
+            产品分类管理
+            </summary>
+            <value></value>
+        </member>
         <member name="M:Wings.Projects.Rcxh.RcxhContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
             <summary>
             
@@ -1906,6 +2262,46 @@
             1.null 扫描Wings.Hk 命名空间下的所有表
             </summary>
             <param name="modelBuilder"></param>
+        </member>
+        <member name="T:Wings.Projects.Video.Controllers.UploadVideoInput">
+            <summary>
+            视频上传文件
+            </summary>
+        </member>
+        <member name="P:Wings.Projects.Video.Controllers.UploadVideoInput.filename">
+            <summary>
+            文件名
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Video.Controllers.UploadVideoInput.file">
+            <summary>
+            上传文件,
+            使用FormData上传
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:Wings.Projects.Video.Controllers.VideoController">
+            <summary>
+            组织管理
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Video.Controllers.VideoController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Video.Controllers.VideoController.listVideo">
+            <summary>
+            列出所有视频
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Video.Controllers.VideoController.uploadVideo(Wings.Projects.Video.Controllers.UploadVideoInput)">
+            <summary>
+            上传视频
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Wings.Startup">
             <summary>

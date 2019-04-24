@@ -22,12 +22,23 @@
     <dxo-filter-row [visible]="true"></dxo-filter-row>
     <dxo-header-filter [visible]="true"></dxo-header-filter>
     <dxo-remote-operations [filtering]="true" [sorting]="true" [grouping]="true"></dxo-remote-operations>
-    <dxi-column *ngFor="let col of columns" [caption]="col.caption" [calculateDisplayValue]="col.calculateDisplayValue"
-      [dataField]="col.dataField" [dataType]="col.dataType">
-      <dxo-lookup *ngIf="col.lookup" [dataSource]="col.lookup.dataSource" [displayExpr]="'label'" [valueExpr]="'value'">
-        <!-- contains the same values as the "status" field provides -->
-      </dxo-lookup>
-    </dxi-column>
+    <ng-container *ngFor="let col of columns">
+
+
+      <dxi-column [caption]="col.caption" [calculateDisplayValue]="col.calculateDisplayValue"
+        [dataField]="col.dataField" [dataType]="col.dataType" [cellTemplate]="col.cellTemplate">
+        <dxo-lookup *ngIf="col.lookup" [dataSource]="col.lookup.dataSource" [displayExpr]="'label'"
+          [valueExpr]="'value'">
+
+        </dxo-lookup>
+      </dxi-column>
+
+      <div *dxTemplate="let data of 'Picture'">
+        <img [src]="data.value" style="    max-width: 50px;max-height: 50px;" />
+      </div>
+    </ng-container>
+
+
     <dxi-column type="buttons" [width]="110">
       <dxi-button icon="edit" [onClick]="edit"></dxi-button>
 

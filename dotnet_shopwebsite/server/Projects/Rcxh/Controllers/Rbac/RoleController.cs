@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -12,22 +13,19 @@ using Wings.Projects.Rcxh.Controllers;
 using Wings.Projects.Rcxh.DVO.Rbac;
 using Wings.Projects.Rcxh.RBAC.Entity;
 
-namespace Wings.Projects.Rcxh.RBAC.Controllers
-{
+namespace Wings.Projects.Rcxh.RBAC.Controllers {
     /// <summary>
     /// 组织管理
     /// </summary>
-    [Route("/api/Hk/role")]
-    public class RoleController : CurdController<Role>
-    {
+    [Route ("/api/Hk/role")]
+    public class RoleController : CurdController<Role> {
         private RcxhContext db { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_db"></param>
-        public RoleController(RcxhContext _db) : base(_db)
-        {
+        public RoleController (RcxhContext _db) : base (_db) {
             db = _db;
         }
         /// <summary>
@@ -35,10 +33,9 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        [HttpGet]
-        public object load(DataSourceLoadOptionsBase options)
-        {
-            return DataSourceLoader.Load((from r in this.db.roles select new RoleManage { id = r.id, roleName = r.roleName, menus = (from m in this.db.menus where r.menuIds.Contains("," + m.id + ",") select m).ToList() }), options);
+        [HttpGet ("[action]")]
+        public object load (DataSourceLoadOptions options) {
+            return DataSourceLoader.Load ((from r in this.db.roles select new RoleManage { id = r.id, roleName = r.roleName, menus = (from m in this.db.menus where r.menuIds.Contains ("," + m.id + ",") select m).ToList () }), options);
 
         }
         /// <summary>
@@ -47,10 +44,9 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost]
-        public object insert([FromForm] DevExtremInput input)
-        {
+        public object insert ([FromForm] DevExtremInput input) {
 
-            return this.insert(input, new Role(), this.db.roles);
+            return this.insert (input, new Role (), this.db.roles);
         }
 
         /// <summary>
@@ -59,9 +55,8 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpDelete]
-        public object remove(DevExtremInput input)
-        {
-            return this.remove(input.key, this.db.roles);
+        public object remove (DevExtremInput input) {
+            return this.remove (input.key, this.db.roles);
         }
         /// <summary>
         /// 更新数据
@@ -69,22 +64,20 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPut]
-        public object update([FromForm] DevExtremInput input)
-        {
-            var roleManage = new RoleManage();
+        public object update ([FromForm] DevExtremInput input) {
+            var roleManage = new RoleManage ();
 
-            var role = this.db.roles.Find(input.key);
+            var role = this.db.roles.Find (input.key);
 
-            JsonConvert.PopulateObject(input.values, roleManage);
-            JsonConvert.PopulateObject(input.values, role);
-            var menuIds = "," + String.Join(",", (from m in roleManage.menus select m.id.ToString()).ToArray()) + ",";
+            JsonConvert.PopulateObject (input.values, roleManage);
+            JsonConvert.PopulateObject (input.values, role);
+            var menuIds = "," + String.Join (",", (from m in roleManage.menus select m.id.ToString ()).ToArray ()) + ",";
             role.menuIds = menuIds;
-            Console.WriteLine(menuIds);
-            return this.db.SaveChanges();
+            Console.WriteLine (menuIds);
+            return this.db.SaveChanges ();
 
             // return this.update(input, this.db.roles);
         }
-
 
     }
 }

@@ -34,11 +34,12 @@ export class AuthService {
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
+  whiteList: string[] = ["login-form", "register"]
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const isLoggedIn = this.authService.isLoggedIn;
-    const isLoginForm = route.routeConfig.path === "login-form";
+    const isLoginForm = !!this.whiteList.find(p => p == route.routeConfig.path);
 
     if (isLoggedIn && isLoginForm) {
       this.router.navigate(["/"]);

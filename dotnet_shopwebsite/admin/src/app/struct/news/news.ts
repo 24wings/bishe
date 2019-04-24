@@ -14,7 +14,7 @@ export let newsView: View = {
     dataSource: new DataSource({
         store: AspNetData.createStore({
             key: "id",
-            loadUrl: environment.ip + "/api/Hk/news",
+            loadUrl: environment.ip + "/api/Hk/news/load",
             insertUrl: environment.ip + "/api/Hk/news",
             updateUrl: environment.ip + "/api/Hk/news",
             deleteUrl: environment.ip + "/api/Hk/news",
@@ -30,7 +30,8 @@ export let newsView: View = {
         {
             dataField: "content",
             caption: "内容",
-            dataType: "string"
+            dataType: "string",
+
         } as DxiDataGridColumn,
         {
             dataField: "createTime",
@@ -71,7 +72,8 @@ export let newsView: View = {
         {
             dataField: "content",
             label: { text: "文章内容" },
-            dataType: "string"
+            dataType: "string",
+            editorType: "dxTextArea"
         } as DevExpress.ui.dxFormSimpleItem,
         {
             dataField: "tag",

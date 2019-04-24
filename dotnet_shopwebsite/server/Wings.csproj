@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>/Users/yangjie/workspace/cucr/pms/out/Wings.xml</DocumentationFile>
+    <DocumentationFile>E:\workspace\bishe\dotnet_shopwebsite\server\out\Wings.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -40,6 +40,10 @@ namespace Wings.Projects.Rcxh.RBAC.Entity {
         /// </summary>
         /// <value></value>
         public int? orgId { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        /// <value></value>
         public DateTime? createTime { get; set; } = DateTime.Now;
         /// <summary>
         /// 用户组织

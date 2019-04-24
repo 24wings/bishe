@@ -5,10 +5,11 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { LoginFormComponent } from "./pages/login-form/login-form.component";
 import { PageComponent } from './pages/page/page.component';
+import { ShopComponent } from './pages/shop/shop.component';
 // import { SideNavInnerToolbarComponent } from 'src/app/layouts/side-nav-inner-toolbar/side-nav-inner-toolbar.component';
 
 @NgModule({
-  declarations: [LoginFormComponent, PageComponent],
+  declarations: [LoginFormComponent, PageComponent, ShopComponent],
   imports: [
     HttpClientModule,
     CommonModule,
@@ -16,11 +17,8 @@ import { PageComponent } from './pages/page/page.component';
     RouterModule.forChild([
       { path: "", redirectTo: "/rcxh/login", pathMatch: "full" },
       { path: "login", component: LoginFormComponent },
-      { path: "admin/page/:dvoFullName", children: [{ path: "", component: PageComponent }] }
-
-      //   { path: "page", component: PageComponent },
-      //   { path: "personal", component: PersonalPageComponent },
-      //   { path: "design", component: DesignPageComponent }
+      { path: "admin/page/:dvoFullName", children: [{ path: "", component: PageComponent }] },
+      { path: "admin/shop", component: ShopComponent },
     ])
   ],
   providers: []

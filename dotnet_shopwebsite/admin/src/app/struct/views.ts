@@ -11,6 +11,8 @@ import * as AspNetData from "devextreme-aspnet-data-nojquery";
 import { environment } from 'src/environments/environment';
 import { newsTagView } from './news/news_tag';
 import { newsView } from './news/news';
+import { productView } from './product/product';
+import { productTagView } from './product/product_tag';
 
 export let metaView: View = {
   dvo: "ViewManage",
@@ -53,5 +55,7 @@ export let metaView: View = {
   ]
 };
 
-export let views: View[] = [metaView, userView, orgView, roleView, menuView, newsTagView, newsView];
+export let views: View[] = [metaView, userView, orgView, roleView, menuView, newsTagView, newsView,
+  productView,
+  productTagView];
 export let activeView = orgView;

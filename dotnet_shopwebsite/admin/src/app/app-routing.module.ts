@@ -13,6 +13,7 @@ import {
 import { SharedModule } from "./shared/shared.module";
 import { SingleCardModule } from "./layouts";
 import { SideNavInnerToolbarComponent } from 'src/app/layouts';
+import { RegisterComponent } from './shared/components/register/register.component';
 
 const routes: Routes = [
   { path: "rcxh", loadChildren: "./libs/rcxh/rcxh.module#RcxhModule" },
@@ -40,7 +41,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuardService]
   },
-  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "", redirectTo: "register", pathMatch: "full" },
   {
     path: "home",
     component: HomeComponent,
@@ -52,8 +53,13 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
+    path: "register",
+    component: RegisterComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
     path: "**",
-    redirectTo: "home",
+    redirectTo: "register",
     canActivate: [AuthGuardService]
   }
 ];

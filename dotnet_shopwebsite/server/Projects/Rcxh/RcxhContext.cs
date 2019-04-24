@@ -6,7 +6,9 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Wings.Base.Common.Attrivute;
+using Wings.Projects.Rcxh.Entity;
 using Wings.Projects.Rcxh.Entity.News;
+using Wings.Projects.Rcxh.Entity.Product;
 using Wings.Projects.Rcxh.RBAC.Entity;
 
 namespace Wings.Projects.Rcxh {
@@ -55,6 +57,21 @@ namespace Wings.Projects.Rcxh {
         /// </summary>
         /// <value></value>
         public DbSet<News> news { get; set; }
+        /// <summary>
+        /// 产品
+        /// </summary>
+        /// <value></value>
+        public DbSet<Product> products { get; set; }
+        /// <summary>
+        /// 订单
+        /// </summary>
+        /// <value></value>
+        public DbSet<Order> orders { get; set; }
+        /// <summary>
+        /// 产品分类管理
+        /// </summary>
+        /// <value></value>
+        public DbSet<ProductTag> productTags { get; set; }
 
         /// <summary>
         /// 

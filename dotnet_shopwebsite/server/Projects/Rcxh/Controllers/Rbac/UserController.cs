@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -31,8 +32,8 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        [HttpGet]
-        public object load (DataSourceLoadOptionsBase options) {
+        [HttpGet ("[action]")]
+        public object load (DataSourceLoadOptions options) {
             var query = (from u in this.db.users select new User {
                 username = u.username,
                     nickname = u.nickname, password = u.password,

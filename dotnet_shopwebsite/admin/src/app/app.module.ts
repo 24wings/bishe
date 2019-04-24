@@ -19,6 +19,7 @@ import { locale, loadMessages } from "devextreme/localization";
 import "devextreme-intl";
 
 import * as messagesZh from "devextreme/localization/messages/zh.json";
+import { RegisterModule } from './shared/components/register/register.component';
 loadMessages(messagesZh);
 //Set locale according the browser language
 locale(navigator.language);
@@ -33,7 +34,9 @@ locale(navigator.language);
     SingleCardModule,
     FooterModule,
     LoginFormModule,
-    AppRoutingModule
+    RegisterModule,
+    AppRoutingModule,
+
   ],
   providers: [AuthService, ScreenService, AppInfoService],
   bootstrap: [AppComponent]
