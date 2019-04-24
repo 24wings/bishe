@@ -8,7 +8,7 @@ width: 100vw;">
                 <!-- <div>Sign In to your account</div> -->
             </div>
             <div class="dx-field">
-                <dx-text-box [(value)]="login" placeholder="用户名" width="100%">
+                <dx-text-box [(value)]="username" placeholder="用户名" width="100%">
                     <dx-validator>
                         <dxi-validation-rule type="required" message="用户名必填"></dxi-validation-rule>
                     </dx-validator>
@@ -25,13 +25,10 @@ width: 100vw;">
                 <dx-check-box [value]="false" text="记住我"></dx-check-box>
             </div>
             <div class="dx-field">
-                <dx-button type="default" text="登录" (onClick)="onLoginClick($event)" width="100%"></dx-button>
+                <dx-button type="default" text="提交" (onClick)="submit($event)" width="100%"></dx-button>
             </div>
             <div class="dx-field">
                 <!-- <a routerLink="/recovery">Forgot password ?</a> -->
-            </div>
-            <div class="dx-field">
-                <dx-button type="normal" text="加入我们" width="100%"></dx-button>
             </div>
         </dx-validation-group>
     </app-single-card>

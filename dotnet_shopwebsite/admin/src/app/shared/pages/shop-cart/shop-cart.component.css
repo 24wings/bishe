@@ -4,7 +4,7 @@
 }
  
 .wrap{
-    width: 100%;
+    width: 100vw;
     /*有父子关系的margin 防止外边距合并*/
     overflow: hidden;
     /*设置透明度*/

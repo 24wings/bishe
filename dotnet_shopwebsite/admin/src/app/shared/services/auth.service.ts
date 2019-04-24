@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import notify from "devextreme/ui/notify";
 @Injectable()
 export class AuthService {
-  loggedIn = true;
+  loggedIn = false;
 
   constructor(private router: Router, public httpClient: HttpClient) { }
 
@@ -34,22 +34,22 @@ export class AuthService {
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-  whiteList: string[] = ["login-form", "register"]
+  whiteList: string[] = ["login-form", "register", "", "/shop"]
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const isLoggedIn = this.authService.isLoggedIn;
-    const isLoginForm = !!this.whiteList.find(p => p == route.routeConfig.path);
-
-    if (isLoggedIn && isLoginForm) {
-      this.router.navigate(["/"]);
+    const canActivePath = this.whiteList.filter(p => new RegExp(p).test(route.routeConfig.path)).length > 0;
+    debugger;
+    if (isLoggedIn && canActivePath) {
+      // this.router.navigate(["/"]);
       return false;
     }
 
-    if (!isLoggedIn && !isLoginForm) {
-      this.router.navigate(["/login-form"]);
+    if (!isLoggedIn && !canActivePath) {
+      // this.router.navigate(["/"+route.routeConfig.path ]);
     }
 
-    return isLoggedIn || isLoginForm;
+    return isLoggedIn || canActivePath;
   }
 }

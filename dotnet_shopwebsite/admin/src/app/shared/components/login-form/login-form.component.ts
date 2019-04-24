@@ -29,10 +29,16 @@ export class LoginFormComponent {
   async onLoginClick(args) {
     var rtn = await this.rcxhApi.login(this.login, this.password);
     if (rtn) {
+      if (rtn.user.id && rtn.user.roleType == 1) {
+        sessionStorage.setItem("userId", rtn.user.id);
+        this.router.navigateByUrl("/shop");
+      } else {
+        this.router.navigateByUrl("/rcxh/admin/page/Wings.Projects.Rcxh.DVO.Rbac.OrgManage");
+        this.authService.logIn(this.login, this.password);
+      }
+      // localStorage.setItem("token", rtn.token);
 
-      localStorage.setItem("token", rtn.token);
-      this.router.navigateByUrl("/rcxh/admin/page/Wings.Projects.Rcxh.DVO.Rbac.OrgManage");
-      this.authService.logIn(this.login, this.password);
+
 
       args.validationGroup.reset();
     }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MyHttpService } from 'src/app/shared/services/my-http.service';
+import { MyHttpService } from '../../../app/shared/services/my-http.service';
 
 @Injectable()
 export class RcxhApiService {
@@ -9,7 +9,9 @@ export class RcxhApiService {
 
     api = {
         auth: {
-            login: '/api/Rcxh/Auth/login/'
+            login: '/api/Rcxh/Auth/login/',
+            signup: "/api/Rcxh/Auth/signup",
+
         }
 
     }
@@ -18,6 +20,10 @@ export class RcxhApiService {
 
     public login(username, password) {
         return this.http.Post(this.api.auth.login, { username, password });
+    }
+
+    public signup(username, password) {
+        return this.http.Post(this.api.auth.signup, { username, password });
     }
 
 

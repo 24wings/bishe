@@ -1223,6 +1223,45 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="T:Wings.Projects.Rcxh.Controllers.OrderController">
+            <summary>
+            组织管理
+            </summary>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.#ctor(Wings.Projects.Rcxh.RcxhContext)">
+            <summary>
+            
+            </summary>
+            <param name="_db"></param>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            查询数据
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.insert(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            增加数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.remove(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            移除数据
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.update(Wings.Base.Common.DTO.DevExtremInput)">
+            <summary>
+            更新
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
         <member name="T:Wings.Projects.Rcxh.Controllers.ProductController">
             <summary>
             组织管理
@@ -1363,6 +1402,13 @@
             登录
             </summary>
             <param name="input"></param>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.AuthController.signup(Wings.Projects.Rcxh.Controllers.LoginInput)">
+            <summary>
+            注册
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
         </member>
         <member name="T:Wings.Projects.Rcxh.RBAC.Controllers.NewsController">
             <summary>
@@ -1766,11 +1812,37 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:Wings.Projects.Rcxh.RBAC.Entity.User.roleType">
+            <summary>
+            角色类型
+            </summary>
+            <value></value>
+        </member>
         <member name="P:Wings.Projects.Rcxh.RBAC.Entity.User.org">
             <summary>
             用户组织
             </summary>
             <value></value>
+        </member>
+        <member name="T:Wings.Projects.Rcxh.RBAC.Entity.RoleType">
+            <summary>
+            角色类型
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.RBAC.Entity.RoleType.Guest">
+            <summary>
+            游客
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.RBAC.Entity.RoleType.User">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="F:Wings.Projects.Rcxh.RBAC.Entity.RoleType.Admin">
+            <summary>
+            管理员
+            </summary>
         </member>
         <member name="T:Wings.Projects.Rcxh.DVO.Rbac.MenuManage">
             <summary>
@@ -2022,6 +2094,12 @@
         <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.realPayAmount">
             <summary>
             实付金额
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:Wings.Projects.Rcxh.Entity.Product.Order.userId">
+            <summary>
+            订单发起人
             </summary>
             <value></value>
         </member>

@@ -6,24 +6,26 @@ using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Wings.Base.Common.Attrivute;
 using Wings.Base.Common.DTO;
 using Wings.Projects.Rcxh.Controllers;
+using Wings.Projects.Rcxh.Entity.Product;
 using Wings.Projects.Rcxh.RBAC.Entity;
 
-namespace Wings.Projects.Rcxh.RBAC.Controllers {
+namespace Wings.Projects.Rcxh.Controllers {
     /// <summary>
     /// 组织管理
     /// </summary>
-    [Route ("/api/Hk/newsTag")]
-    public class NewsTagController : CurdController<NewsTag> {
+    [Route ("/api/Hk/order")]
+    public class OrderController : CurdController<Order> {
         private RcxhContext db { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_db"></param>
-        public NewsTagController (RcxhContext _db) : base (_db) {
+        public OrderController (RcxhContext _db) : base (_db) {
             db = _db;
         }
         /// <summary>
@@ -32,10 +34,9 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// <param name="options"></param>
         /// <returns></returns>
         [HttpGet ("[action]")]
-        public object load (DataSourceLoadOptions options) {
-            options.Sort = new [] { new SortingInfo { Selector = "orderBy", Desc = true } };
-            
-            return this.load (options, this.db.newsTag);
+        public object load ([FromQuery] DataSourceLoadOptions options) {
+            var query = from p in this.db.orders select p;
+            return DataSourceLoader.Load (query, options);
         }
         /// <summary>
         /// 增加数据
@@ -44,7 +45,11 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// <returns></returns>
         [HttpPost]
         public object insert (DevExtremInput input) {
-            return this.insert (input, new NewsTag (), this.db.newsTag);
+            var p = new Order ();
+            JsonConvert.PopulateObject (input.values, p);
+            this.db.orders.Add (p);
+            this.db.SaveChanges ();
+            return true;
         }
 
         /// <summary>
@@ -54,16 +59,18 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// <returns></returns>
         [HttpDelete]
         public object remove (DevExtremInput input) {
-            return this.remove (input.key, this.db.newsTag);
+            return this.remove (input.key, this.db.orders);
         }
+
         /// <summary>
-        /// 更新数据
+        /// 更新
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPut]
         public object update ([FromForm] DevExtremInput input) {
-            return this.update (input, this.db.newsTag);
+            return this.update (input, this.db.orders);
+
         }
     }
 }

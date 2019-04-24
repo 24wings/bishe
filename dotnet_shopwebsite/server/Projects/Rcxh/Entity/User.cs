@@ -46,12 +46,36 @@ namespace Wings.Projects.Rcxh.RBAC.Entity {
         /// <value></value>
         public DateTime? createTime { get; set; } = DateTime.Now;
         /// <summary>
+        /// 角色类型
+        /// </summary>
+        /// <value></value>
+        public RoleType roleType { get; set; } = RoleType.User;
+        /// <summary>
         /// 用户组织
         /// </summary>
         /// <value></value>
         [NotMapped]
 
         public Org org { get; set; }
+
+    }
+    /// <summary>
+    /// 角色类型
+    /// </summary>
+    public enum RoleType {
+        /// <summary>
+        /// 游客
+        /// </summary>
+        Guest,
+        /// <summary>
+        /// 用户
+        /// </summary>
+
+        User,
+        /// <summary>
+        /// 管理员
+        /// </summary>
+        Admin
 
     }
 

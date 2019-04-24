@@ -16,7 +16,7 @@ import { RcxhApiService } from '../../services/rcxh-api.service';
     styleUrls: ["./register.component.scss"]
 })
 export class RegisterComponent {
-    login = "admin";
+    username = "admin";
     password = "8888";
 
     constructor(
@@ -26,13 +26,19 @@ export class RegisterComponent {
         private router: Router
     ) { }
 
-    async onLoginClick(args) {
-        var rtn = await this.rcxhApi.login(this.login, this.password);
+    async submit(args) {
+        var rtn = await this.rcxhApi.signup(this.username, this.password);
         if (rtn) {
 
             //   localStorage.setItem("token", rtn.token);
             //   this.router.navigateByUrl("/rcxh/admin/page/Wings.Projects.Rcxh.DVO.Rbac.OrgManage");
             //   this.authService.logIn(this.login, this.password);
+            if (rtn.user.id) {
+                sessionStorage.setItem("userId", rtn.user.id);
+                this.authService.logIn(this.username, this.password);
+                this.router.navigateByUrl("/shop");
+
+            }
 
             args.validationGroup.reset();
         }

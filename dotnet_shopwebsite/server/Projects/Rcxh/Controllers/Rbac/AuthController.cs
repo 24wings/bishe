@@ -13,14 +13,13 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Wings.Base.Common.Attrivute;
 using Wings.Base.Common.DTO;
+using Wings.Projects.Rcxh.RBAC.Entity;
 
-namespace Wings.Projects.Rcxh.Controllers
-{
+namespace Wings.Projects.Rcxh.Controllers {
     /// <summary>
     /// 配置
     /// </summary>
-    public class Config
-    {
+    public class Config {
         /// <summary>
         /// 密钥
         /// </summary>
@@ -30,8 +29,7 @@ namespace Wings.Projects.Rcxh.Controllers
     /// <summary>
     /// token实例
     /// </summary>
-    public class TokenInstance
-    {
+    public class TokenInstance {
         /// <summary>
         /// 用户id
         /// </summary>
@@ -41,8 +39,7 @@ namespace Wings.Projects.Rcxh.Controllers
     /// <summary>
     /// 登录输入
     /// </summary>
-    public class LoginInput
-    {
+    public class LoginInput {
         /// <summary>
         /// 用户名
         /// </summary>
@@ -58,44 +55,54 @@ namespace Wings.Projects.Rcxh.Controllers
     /// 自动化管理控制器
     /// </summary>
     [ApiController]
-    [Route("/api/Rcxh/Auth")]
-    public class AuthController : Controller
-    {
+    [Route ("/api/Rcxh/Auth")]
+    public class AuthController : Controller {
 
         private RcxhContext db { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_db"></param>
-        public AuthController(RcxhContext _db) { db = _db; }
+        public AuthController (RcxhContext _db) { db = _db; }
         /// <summary>
         /// 登录
         /// </summary>
         /// <param name="input"></param>
-        [HttpPost("[action]")]
-        public object login(LoginInput input)
-        {
-            var user = (from u in this.db.users where u.username == input.username select u).FirstOrDefault();
-            if (user != null)
-            {
-                if (user.password == input.password)
-                {
-                    var token = new JwtBuilder()
-                        .WithAlgorithm(new HMACSHA256Algorithm())
-                        .WithSecret(Config.secret)
-                        .AddClaim("userId", user.id)
-                        .Build();
+        [HttpPost ("[action]")]
+        public object login (LoginInput input) {
+            var user = (from u in this.db.users where u.username == input.username select u).FirstOrDefault ();
+            if (user != null) {
+                if (user.password == input.password) {
+                    var token = new JwtBuilder ()
+                        .WithAlgorithm (new HMACSHA256Algorithm ())
+                        .WithSecret (Config.secret)
+                        .AddClaim ("userId", user.id)
+                        .Build ();
 
-                    return CommonRtn.Success("token", token);
+                    return CommonRtn.Success ("user", user);
+                } else {
+                    return CommonRtn.Error ("密码错误");
                 }
-                else
-                {
-                    return CommonRtn.Error("密码错误");
-                }
+            } else {
+                return CommonRtn.Error ("用户不存在");
             }
-            else
-            {
-                return CommonRtn.Error("用户不存在");
+
+        }
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost ("[action]")]
+        public CommonRtn signup ([FromBody] LoginInput input) {
+            var user = (from u in this.db.users where u.username == input.username select u).FirstOrDefault ();
+            if (user != null) {
+                return CommonRtn.Error ("用户已经注册");
+            } else {
+                var newUser = new User { nickname = "新用户", username = input.username, password = input.password, roleType = RoleType.User };
+                this.db.users.Add (newUser);
+                this.db.SaveChanges ();
+                return CommonRtn.Success (new Dictionary<string, object> { { "user", newUser } });
             }
 
         }

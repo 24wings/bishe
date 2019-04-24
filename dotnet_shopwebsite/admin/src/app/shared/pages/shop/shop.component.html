@@ -27,20 +27,22 @@
 
             <!--购物车-->
             <div class='topBar-cart'>
-                <a href="#">
+                <a>
                     <span class="icon"></span>
-                    <span class="shop-cart">购物车（0）</span>
+                    <span class="shop-cart" (click)="goShopCart()">购物车（{{orders.length}}）</span>
                 </a>
+                <a (click)="logout()" *ngIf="state!=View.Guest">退出</a>
+                <span class="sep">|</span>
             </div>
 
 
             <!--用户信息-->
             <div class='topBar-message'>
-                <a href="#">登录</a>
+                <a routerLink="/login-form" *ngIf="state==View.Guest">登录</a>
                 <span class="sep">|</span>
-                <a href="#">注册</a>
+                <a outerLink="/register" *ngIf="state==View.Guest">注册</a>
                 <span class="sep">|</span>
-                <a href="#">消息通知</a>
+                <!-- <a href="#">消息通知</a> -->
             </div>
         </div>
     </div>
@@ -165,7 +167,7 @@
                             <div style="color:red">{{p.price}}￥</div>
                             <div style="    cursor: pointer;
                             font-size: 1.4rem;
-                            color: red;">+</div>
+                            color: red;" (click)="createOrder(p)">+</div>
                         </div>
                     </li>
                 </ul>

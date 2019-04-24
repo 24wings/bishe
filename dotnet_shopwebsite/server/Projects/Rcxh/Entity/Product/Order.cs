@@ -60,6 +60,11 @@ namespace Wings.Projects.Rcxh.Entity.Product {
         /// </summary>
         /// <value></value>
         public decimal realPayAmount { get; set; }
+        /// <summary>
+        /// 订单发起人
+        /// </summary>
+        /// <value></value>
+        public int userId { get; set; }
 
     }
     /// <summary>

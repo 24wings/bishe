@@ -14,6 +14,8 @@ import { SharedModule } from "./shared/shared.module";
 import { SingleCardModule } from "./layouts";
 import { SideNavInnerToolbarComponent } from 'src/app/layouts';
 import { RegisterComponent } from './shared/components/register/register.component';
+import { ShopComponent } from './shared/pages/shop/shop.component';
+import { ShopCartComponent } from './shared/pages/shop-cart/shop-cart.component';
 
 const routes: Routes = [
   { path: "rcxh", loadChildren: "./libs/rcxh/rcxh.module#RcxhModule" },
@@ -41,7 +43,9 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuardService]
   },
-  { path: "", redirectTo: "register", pathMatch: "full" },
+  { path: "shop", component: ShopComponent, },
+  { path: "shop-cart", component: ShopCartComponent, },
+  { path: "", redirectTo: "/shop", pathMatch: "full" },
   {
     path: "home",
     component: HomeComponent,
@@ -59,8 +63,8 @@ const routes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "register",
-    canActivate: [AuthGuardService]
+    redirectTo: "/shop",
+    // canActivate: [AuthGuardService]
   }
 ];
 
@@ -75,6 +79,6 @@ const routes: Routes = [
   ],
   providers: [AuthGuardService],
   exports: [RouterModule],
-  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent]
+  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent, ShopComponent, ShopCartComponent]
 })
 export class AppRoutingModule { }

@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
 import * as AspNetData from "devextreme-aspnet-data-nojquery";
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
+import { myOrderView } from 'src/app/struct/product/order';
+
+enum View {
+    Guest,
+    User
+}
 @Component({
-    selector: "shop-component",
-    templateUrl: "./shop.component.html",
-    styleUrls: ["./shop.component.css"]
+    selector: "shop-cart",
+    templateUrl: "./shop-cart.component.html",
+    styleUrls: ["./shop-cart.component.css"]
 })
-export class ShopComponent {
+export class ShopCartComponent {
+    selectedDVO = myOrderView
+    constructor(private router: Router) { }
+    state = View.Guest;
+    View = View;
     selectedTag;
     productTags: any[] = [];
     products: any[] = []
@@ -23,9 +34,18 @@ export class ShopComponent {
 
 
 
+
+
     async ngOnInit() {
         await this.listProductTags();
-        await this.listProducts(this.productTags[0])
+        await this.listProducts(this.productTags[0]);
+        this.getUserInfo();
+    }
+
+    async getUserInfo() {
+        if (sessionStorage.getItem("userId")) {
+            this.state = View.User;
+        }
     }
 
     async listProductTags() {
@@ -49,8 +69,13 @@ export class ShopComponent {
 
 
     }
+    goShopCart() {
+        if (this.state == View.Guest) {
+            this.router.navigateByUrl("/login-form");
+        } else {
 
-
+        }
+    }
 
 
 
