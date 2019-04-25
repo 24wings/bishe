@@ -5,6 +5,6 @@ export class AppInfoService {
   constructor() { }
 
   public get title() {
-    return '教务系统';
+    return '销售管理系统';
   }
 }
