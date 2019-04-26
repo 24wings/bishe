@@ -66,7 +66,8 @@ export class WritePageComponent {
         author: "",
         sourceType: 0,
         useAudio: false,
-        audioUrl: ""
+        audioUrl: "",
+        audioName: ""
     }
 
     state: View = View.Write;
@@ -174,6 +175,7 @@ export class WritePageComponent {
         var el = this.audioEl.nativeElement
         if (el) {
             this.duration = new Date(el.duration * 1000).format("mm:ss");
+
             this.currentTime = new Date(el.currentTime * 1000).format("mm:ss");
         }
 

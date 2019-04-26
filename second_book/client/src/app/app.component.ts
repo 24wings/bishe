@@ -6,7 +6,7 @@ import "devextreme-intl";
 
 import { HttpClient } from "@angular/common/http";
 
- 
+
 
 @Component({
   selector: "app-root",
@@ -20,12 +20,12 @@ export class AppComponent {
       .join(" ");
   }
   initMessages() {
- 
+
     locale("zh");
   }
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    //Add 'implements OnInit' to the class. 
 
   }
 

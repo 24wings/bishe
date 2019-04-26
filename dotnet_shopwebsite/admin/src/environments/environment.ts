@@ -6,7 +6,7 @@ export enum DataMode {
   LocalStorage
 }
 export const environment = {
-  ip: "http://127.0.0.1:5000",
+  ip: "http://119.96.220.86:5001",
   production: false,
   get dvoUrl() {
     return this.ip + "/api/RBAC/Demo/";

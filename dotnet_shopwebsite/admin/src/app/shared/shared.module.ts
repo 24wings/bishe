@@ -9,7 +9,6 @@ import {
   DxTextBoxModule,
   DxSelectBoxModule,
   DxHtmlEditorModule,
-  DxTemplateHost,
   DxTemplateModule,
   DxTagBoxModule,
   DxMenuModule,
@@ -25,7 +24,6 @@ import {
   DxLookupModule
 } from "devextreme-angular";
 import { CommonModule } from "@angular/common";
-// import { HostService } from "./services/host.service";
 import { SqlMapService } from "./services/sqlmap.service";
 import { SingleCardModule } from "../layouts/single-card/single-card.component";
 import { WsViewComponent } from "./components/ws-view/ws-view.component";
@@ -40,12 +38,11 @@ import { DynamicColDirective } from "./components/cols/dynamic-col.directive";
 import { DynamicCellDirective } from "./components/cells/dynamic-cell.directive";
 import { cellComponentRegister } from "./components/cells/cell.component.register";
 import { WsSearchBarComponent } from "./components/ws-search-bar/ws-search-bar.component";
-var cellComponents = cellComponentRegister.map(r => r.component);
+export var cellComponents = cellComponentRegister.map(r => r.component);
 import { DxValidatorModule } from "devextreme-angular/ui/validator";
 import { DxValidationGroupModule } from "devextreme-angular/ui/validation-group";
 import { MyHttpService } from './services/my-http.service';
 import { RcxhApiService } from './services/rcxh-api.service';
-import { WsImageCellComponent } from './components/cells/ws-image-cell/ws-image-cell.component';
 
 @NgModule({
   imports: [
@@ -110,8 +107,6 @@ import { WsImageCellComponent } from './components/cells/ws-image-cell/ws-image-
     DxRadioGroupModule,
     DxTreeViewModule,
     DxDropDownBoxModule,
-    ...cellComponents,
-    WsSearchBarComponent,
     DxValidationGroupModule,
     DxValidatorModule,
     DxFileUploaderModule,
@@ -128,7 +123,7 @@ import { WsImageCellComponent } from './components/cells/ws-image-cell/ws-image-
     ...cellComponents,
     WsSearchBarComponent,
   ],
-  providers: [SqlMapService, DxTemplateHost, RcxhApiService],
+  providers: [SqlMapService, RcxhApiService],
   entryComponents: [...cellComponents]
 })
 export class SharedModule {
