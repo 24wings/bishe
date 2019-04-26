@@ -6,7 +6,6 @@ import {
   EventEmitter
 } from "@angular/core";
 import * as AspNetData from "devextreme-aspnet-data-nojquery";
-import { environment, DataMode } from "src/environments/environment";
 import {
   DxDataGridComponent,
   DxTreeListComponent,
