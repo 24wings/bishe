@@ -36,14 +36,17 @@ import { DynamicColComponent } from "./components/cols/dynamic-col.component";
 import { DynamicCellComponent } from "./components/cells/dynamic-cell.component";
 import { DynamicColDirective } from "./components/cols/dynamic-col.directive";
 import { DynamicCellDirective } from "./components/cells/dynamic-cell.directive";
-import { cellComponentRegister } from "./components/cells/cell.component.register";
+// import { cellComponentRegister } from "./components/cells/cell.component.register";
 import { WsSearchBarComponent } from "./components/ws-search-bar/ws-search-bar.component";
-export var cellComponents = cellComponentRegister.map(r => r.component);
 import { DxValidatorModule } from "devextreme-angular/ui/validator";
 import { DxValidationGroupModule } from "devextreme-angular/ui/validation-group";
 import { MyHttpService } from './services/my-http.service';
 import { RcxhApiService } from './services/rcxh-api.service';
+import { WsRefTreeComponent } from './components/cells/ws-ref-tree/ws-ref-tree.component';
+import { WsImageCellComponent } from './components/cells/ws-image-cell/ws-image-cell.component';
 
+
+const components = [WsRefTreeComponent, WsImageCellComponent]
 @NgModule({
   imports: [
     CommonModule,
@@ -110,7 +113,9 @@ import { RcxhApiService } from './services/rcxh-api.service';
     DxValidationGroupModule,
     DxValidatorModule,
     DxFileUploaderModule,
-    DxLookupModule
+    DxLookupModule,
+    ...components
+
   ],
   declarations: [
     WsViewComponent,
@@ -120,11 +125,12 @@ import { RcxhApiService } from './services/rcxh-api.service';
     DynamicCellComponent,
     DynamicColDirective,
     DynamicCellDirective,
-    ...cellComponents,
     WsSearchBarComponent,
+    ...components
+
   ],
   providers: [SqlMapService, RcxhApiService],
-  entryComponents: [...cellComponents]
+  entryComponents: []
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders {

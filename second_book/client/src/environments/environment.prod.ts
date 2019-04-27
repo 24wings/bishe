@@ -1,4 +1,4 @@
 export const environment = {
-  ip: "http://test.95t92.cn",
+  ip: "http://115.29.64.6",
   production: true
 };
