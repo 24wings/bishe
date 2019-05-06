@@ -46,23 +46,26 @@ export class HeaderComponent {
   @Input()
   title: string;
 
-  userMenuItems = [{
-    text: 'Profile',
-    icon: 'user'
-  }, {
-    text: 'Logout',
-    icon: 'runner',
-    onClick: () => {
-      this.authService.logOut();
-    },
+  userMenuItems = [
+    //   {
+    //   text: 'Profile',
+    //   icon: 'user'
+    // },
+    {
+      text: '退出',
+      icon: 'runner',
+      onClick: () => {
+        this.authService.logOut();
+      },
 
-  }, {
-    text: "切换主题",
-    icon: "theme",
-    onClick: () => {
-      this.selectThemePanelVisible = true;
-    }
-  }
+    },
+    // {
+    //   text: "切换主题",
+    //   icon: "theme",
+    //   onClick: () => {
+    //     this.selectThemePanelVisible = true;
+    //   }
+    // }
   ];
   selectThemePanelVisible = false;
 

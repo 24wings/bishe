@@ -44,9 +44,10 @@ import { MyHttpService } from './services/my-http.service';
 import { RcxhApiService } from './services/rcxh-api.service';
 import { WsRefTreeComponent } from './components/cells/ws-ref-tree/ws-ref-tree.component';
 import { WsImageCellComponent } from './components/cells/ws-image-cell/ws-image-cell.component';
+import { ArticleComponent } from './pages/article/article.component';
 
 
-const components = [WsRefTreeComponent, WsImageCellComponent]
+const components = [WsRefTreeComponent, WsImageCellComponent, ArticleComponent]
 @NgModule({
   imports: [
     CommonModule,
@@ -130,7 +131,7 @@ const components = [WsRefTreeComponent, WsImageCellComponent]
 
   ],
   providers: [SqlMapService, RcxhApiService],
-  entryComponents: []
+  entryComponents: [WsRefTreeComponent, WsImageCellComponent]
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders {

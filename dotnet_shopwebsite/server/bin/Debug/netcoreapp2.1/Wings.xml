@@ -1421,11 +1421,10 @@
             </summary>
             <param name="_db"></param>
         </member>
-        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.NewsController.load(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+        <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.NewsController.load">
             <summary>
             查询数据
             </summary>
-            <param name="options"></param>
             <returns></returns>
         </member>
         <member name="M:Wings.Projects.Rcxh.RBAC.Controllers.NewsController.insert(Wings.Base.Common.DTO.DevExtremInput)">
@@ -2007,10 +2006,10 @@
             </summary>
             <value></value>
         </member>
-        <member name="F:Wings.Projects.Rcxh.Entity.News.News.status">
+        <member name="P:Wings.Projects.Rcxh.Entity.News.News.status">
             <summary>
             新闻状态
-            </summary>
+            /// </summary>
         </member>
         <member name="T:Wings.Projects.Rcxh.Entity.News.NewsStatus">
             <summary>

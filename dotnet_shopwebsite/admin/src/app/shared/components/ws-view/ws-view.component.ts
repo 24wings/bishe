@@ -35,6 +35,7 @@ export class WsViewComponent {
   selectedRowKeys: string[] = [];
   @ViewChild(DxDataGridComponent) dataGrid: DxDataGridComponent;
   v: View & TreeListView;
+
   @Input() set view(v: View) {
     this.v = v as any;
     this.columns = v.cols;

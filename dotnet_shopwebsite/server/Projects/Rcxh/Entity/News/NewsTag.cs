@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Wings.Projects.Rcxh.RBAC.Entity {
+namespace Wings.Projects.Rcxh.RBAC.Entity
+{
     /// <summary>
     /// 菜单
     /// </summary>
-    [Table ("news_tag")]
-    public class NewsTag {
+    [Table("news_tag")]
+    public class NewsTag
+    {
         /// <summary>
         /// 主键
         /// </summary>
         /// <value></value>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         /// <summary>
         /// 分类名称

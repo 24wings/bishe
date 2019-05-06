@@ -1,0 +1,78 @@
+<div class="wrap">
+    <!--顶部导航栏-->
+    <div class='topBar'>
+        <div class='container1'>
+            <!--导航条-->
+            <!-- <div class="topBar-nav">
+                <ng-container *ngFor="let tag of productTags">
+                    <a>{{tag.name}}</a>
+                    <span class="sep">|</span>
+                </ng-container>
+                <a href='#'>MIUI</a>
+                <span class="sep">|</span>
+                <a href='#'>loT</a>
+                <span class="sep">|</span>
+                <a href='#'>云服务</a>
+                <span class="sep">|</span>
+                <a href='#'>金融</a>
+                <span class="sep">|</span>
+                <a href='#'>有品</a>
+                <span class="sep">|</span>
+                <a href='#'>小爱开放平台</a>
+                <span class="sep">|</span>
+                <a href='#'>政企服务</a>
+                <span class="sep">|</span>
+                <a href='#'>Select Region</a>
+            </div> -->
+
+            <!--购物车-->
+            <div class='topBar-cart'>
+                <a>
+                    <span class="icon"></span>
+                    <span class="shop-cart" (click)="goShopCart()">购物车（{{orders.length}}）</span>
+                </a>
+                <!-- <a (click)="logout()">退出</a> -->
+                <span class="sep">|</span>
+            </div>
+
+
+            <!--用户信息-->
+            <div class='topBar-message'>
+                <!-- <a routerLink="/login-form" *ngIf="state==View.Guest">登录</a> -->
+                <span class="sep">|</span>
+                <a routerLink="/article">新闻</a>
+                <span class="sep">|</span>
+                <!-- <a outerLink="/register" *ngIf="state==View.Guest">注册</a> -->
+                <span class="sep">|</span>
+                <!-- <a href="#">消息通知</a> -->
+            </div>
+        </div>
+    </div>
+
+    <div *ngFor="let article of articles">
+        <div class="home-article-inner" data-cover="false">
+            <div class="passage-meta">
+                <span>
+                    <i class="fa fa-calendar"></i>{{article.createTime|date:'yyyy-MM-dd'}}
+                </span>
+
+
+                <span>
+                    | <i class="fa fa-unlock-alt"></i>UNLOCK
+                </span>
+
+            </div>
+            <h1 class="home-article-title">
+                <a href="/passages/2019-03-04-please-mark/">{{article.title}}</a>
+            </h1>
+            <div class="home-article-content passage-article">
+
+                {{article.content}}
+            </div>
+            <!-- <a class="home-article-read" href="/passages/2019-03-04-please-mark/">
+                README MORE &gt;&gt;&gt;
+            </a> -->
+
+        </div>
+    </div>
+</div>

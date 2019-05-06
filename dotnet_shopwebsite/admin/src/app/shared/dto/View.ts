@@ -17,6 +17,8 @@ export class View {
     | DevExpress.ui.dxFormEmptyItem
     | DevExpress.ui.dxFormButtonItem)[] = [];
   querys?: DevExpress.ui.dxFormSimpleItem[];
+  allowCreate?: boolean
+  allowDelete?: boolean
 }
 
 export class TreeListView extends View {

@@ -51,30 +51,30 @@ export let orgView: TreeListView = {
         } as DevExpress.ui.dxFormSimpleItem
     ],
     querys: [
-        {
-            dataField: "menus",
-            label: { text: "角色菜单" },
-            editorType: "wsRefTree" as any,
-            editorOptions: {
-                dxDropbox: {
-                    displayExpr: "name"
-                },
-                dxTreeView: {
-                    dataSource: new DataSource(
-                        new LocalStore({
-                            key: "id",
-                            immediate: true,
-                            name: "local-menu",
-                            flushInterval: 1000
-                        })
-                    ),
-                    selectionMode: "single",
-                    keyExpr: "id",
-                    displayExpr: "name",
-                    parentIdExpr: "parentId",
-                    placeholder: "勾选菜单列表"
-                }
-            }
-        } as DevExpress.ui.dxFormSimpleItem
+        // {
+        //     dataField: "menus",
+        //     label: { text: "角色菜单" },
+        //     editorType: "wsRefTree" as any,
+        //     editorOptions: {
+        //         dxDropbox: {
+        //             displayExpr: "name"
+        //         },
+        //         dxTreeView: {
+        //             dataSource: new DataSource(
+        //                 new LocalStore({
+        //                     key: "id",
+        //                     immediate: true,
+        //                     name: "local-menu",
+        //                     flushInterval: 1000
+        //                 })
+        //             ),
+        //             selectionMode: "single",
+        //             keyExpr: "id",
+        //             displayExpr: "name",
+        //             parentIdExpr: "parentId",
+        //             placeholder: "勾选菜单列表"
+        //         }
+        //     }
+        // } as DevExpress.ui.dxFormSimpleItem
     ]
 };

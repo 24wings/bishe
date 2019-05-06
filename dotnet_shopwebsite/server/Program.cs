@@ -36,7 +36,7 @@ namespace Wings
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
             .UseStartup<Startup>()
-            .UseUrls("http://0.0.0.0:5001");
+            .UseUrls(new string[] { "http://0.0.0.0:5001" });
         // .Build();
     }
 }

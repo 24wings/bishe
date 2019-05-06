@@ -35,7 +35,7 @@ export class RegisterComponent {
             //   this.authService.logIn(this.login, this.password);
             if (rtn.user.id) {
                 sessionStorage.setItem("userId", rtn.user.id);
-                this.authService.logIn(this.username, this.password);
+                this.authService.loggedIn = false;
                 this.router.navigateByUrl("/shop");
 
             }

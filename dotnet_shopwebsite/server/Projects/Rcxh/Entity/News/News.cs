@@ -1,16 +1,21 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Wings.Projects.Rcxh.Entity.News {
+namespace Wings.Projects.Rcxh.Entity.News
+{
     /// <summary>
     /// 新闻
     /// </summary>
-    [Table ("news")]
-    public class News {
+    [Table("news")]
+    public class News
+    {
         /// <summary>
         /// 主键
         /// </summary>
         /// <value></value>
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         /// <summary>
         /// 标题
@@ -26,7 +31,7 @@ namespace Wings.Projects.Rcxh.Entity.News {
         /// 创建时间
         /// </summary>
         /// <value></value>
-        public DateTime createTime { get; set; }
+        public DateTime? createTime { get; set; } = DateTime.Now;
         /// <summary>
         /// 内容
         /// </summary>
@@ -37,17 +42,18 @@ namespace Wings.Projects.Rcxh.Entity.News {
         /// 分类Id
         /// </summary>
         /// <value></value>
-        public int tagId { get; set; }
+        public int? tagId { get; set; }
         /// <summary>
         /// 新闻状态
-        /// </summary>
-        public NewsStatus status = NewsStatus.Submitted;
+        /// /// </summary>
+        public NewsStatus? status { get; set; } = NewsStatus.Submitted;
     }
     /// <summary>
     /// 新闻状态
     /// </summary>
 
-    public enum NewsStatus {
+    public enum NewsStatus
+    {
         /// <summary>
         /// 已提交
         /// </summary>

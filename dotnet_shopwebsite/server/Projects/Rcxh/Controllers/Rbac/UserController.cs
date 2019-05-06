@@ -12,19 +12,22 @@ using Wings.Base.Common.DTO;
 using Wings.Projects.Rcxh.Controllers;
 using Wings.Projects.Rcxh.RBAC.Entity;
 
-namespace Wings.Projects.Rcxh.RBAC.Controllers {
+namespace Wings.Projects.Rcxh.RBAC.Controllers
+{
     /// <summary>
     /// 组织管理
     /// </summary>
-    [Route ("/api/Hk/user")]
-    public class UserController : CurdController<User> {
+    [Route("/api/Hk/user")]
+    public class UserController : CurdController<User>
+    {
         private RcxhContext db { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_db"></param>
-        public UserController (RcxhContext _db) : base (_db) {
+        public UserController(RcxhContext _db) : base(_db)
+        {
             db = _db;
         }
         /// <summary>
@@ -32,14 +35,19 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        [HttpGet ("[action]")]
-        public object load (DataSourceLoadOptions options) {
-            var query = (from u in this.db.users select new User {
-                username = u.username,
-                    nickname = u.nickname, password = u.password,
-                    org = (from o in this.db.orgs where o.orgId == u.orgId select o).FirstOrDefault (),
-            });
-            return DataSourceLoader.Load (query, options);
+        [HttpGet("[action]")]
+        public object load(DataSourceLoadOptions options)
+        {
+            var query = (from u in this.db.users
+                         select new User
+                         {
+                             id = u.id,
+                             username = u.username,
+                             nickname = u.nickname,
+                             password = u.password,
+                             org = (from o in this.db.orgs where o.orgId == u.orgId select o).FirstOrDefault(),
+                         });
+            return DataSourceLoader.Load(query, options);
 
         }
         /// <summary>
@@ -48,8 +56,9 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost]
-        public object insert (DevExtremInput input) {
-            return this.insert (input, new User (), this.db.users);
+        public object insert(DevExtremInput input)
+        {
+            return this.insert(input, new User(), this.db.users);
         }
 
         /// <summary>
@@ -58,8 +67,9 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpDelete]
-        public object remove (DevExtremInput input) {
-            return this.remove (input.key, this.db.users);
+        public object remove(DevExtremInput input)
+        {
+            return this.remove(input.key, this.db.users);
         }
         /// <summary>
         /// 更新数据
@@ -67,13 +77,14 @@ namespace Wings.Projects.Rcxh.RBAC.Controllers {
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPut]
-        public object update ([FromForm] DevExtremInput input) {
+        public object update([FromForm] DevExtremInput input)
+        {
 
-            var user = this.db.users.Find (input.key);
-            JsonConvert.PopulateObject (input.values, user);
+            var user = this.db.users.Find(input.key);
+            JsonConvert.PopulateObject(input.values, user);
             user.orgId = user.org?.orgId;
 
-            this.db.SaveChanges ();
+            this.db.SaveChanges();
             return true;
 
         }

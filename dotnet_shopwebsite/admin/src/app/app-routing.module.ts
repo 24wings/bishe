@@ -16,6 +16,7 @@ import { SideNavInnerToolbarComponent } from 'src/app/layouts';
 import { RegisterComponent } from './shared/components/register/register.component';
 import { ShopComponent } from './shared/pages/shop/shop.component';
 import { ShopCartComponent } from './shared/pages/shop-cart/shop-cart.component';
+import { ArticleComponent } from './shared/pages/article/article.component';
 
 const routes: Routes = [
   { path: "rcxh", loadChildren: "./libs/rcxh/rcxh.module#RcxhModule" },
@@ -45,6 +46,7 @@ const routes: Routes = [
   },
   { path: "shop", component: ShopComponent, },
   { path: "shop-cart", component: ShopCartComponent, },
+  { path: "article", component: ArticleComponent, },
   { path: "", redirectTo: "/shop", pathMatch: "full" },
   {
     path: "home",

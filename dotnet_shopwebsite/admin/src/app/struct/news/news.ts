@@ -63,11 +63,11 @@ export let newsView: View = {
             label: { text: "文章标题" },
             dataType: "string"
         } as DevExpress.ui.dxFormSimpleItem,
-        {
-            dataField: "title",
-            label: { text: "文章标题" },
-            dataType: "string"
-        } as DevExpress.ui.dxFormSimpleItem,
+        // {
+        //     dataField: "title",
+        //     label: { text: "文章标题" },
+        //     dataType: "string"
+        // } as DevExpress.ui.dxFormSimpleItem,
 
         {
             dataField: "content",

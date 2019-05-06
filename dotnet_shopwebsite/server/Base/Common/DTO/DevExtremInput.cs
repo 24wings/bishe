@@ -1,9 +1,11 @@
-namespace Wings.Base.Common.DTO {
+namespace Wings.Base.Common.DTO
+{
 
     /// <summary>
     /// DevExtream Body Datas
     /// </summary>
-    public class DevExtremInput {
+    public class DevExtremInput
+    {
         /// <summary>
         /// 
         /// </summary>

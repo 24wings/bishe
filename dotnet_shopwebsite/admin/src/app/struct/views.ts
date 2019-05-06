@@ -13,6 +13,7 @@ import { newsTagView } from './news/news_tag';
 import { newsView } from './news/news';
 import { productView } from './product/product';
 import { productTagView } from './product/product_tag';
+import { ordersView } from './product/order';
 
 export let metaView: View = {
   dvo: "ViewManage",
@@ -57,5 +58,5 @@ export let metaView: View = {
 
 export let views: View[] = [metaView, userView, orgView, roleView, menuView, newsTagView, newsView,
   productView,
-  productTagView];
+  productTagView, ordersView];
 export let activeView = orgView;
