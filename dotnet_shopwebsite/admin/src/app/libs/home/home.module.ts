@@ -13,17 +13,18 @@ import { PageComponent } from "./pages/page/page.component";
     HomePageComponent,
     PersonalPageComponent,
     DesignPageComponent,
-    PageComponent
+    PageComponent,
   ],
   imports: [
     HttpClientModule,
     CommonModule,
     SharedModule.forRoot(),
     RouterModule.forChild([
-      { path: "", component: HomePageComponent },
+      { path: "", component: HomePageComponent, pathMatch: 'full' },
       { path: "page", component: PageComponent },
       { path: "personal", component: PersonalPageComponent },
-      { path: "design", component: DesignPageComponent }
+      { path: "design", component: DesignPageComponent },
+
     ])
   ],
   providers: []

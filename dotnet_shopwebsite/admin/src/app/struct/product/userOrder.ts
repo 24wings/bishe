@@ -71,7 +71,8 @@ export let userOrderView: View = {
                 dataSource: [ // contains the same values as the "status" field provides
                     { label: '已提交', value: 0 },
                     { label: '已支付', value: 1 },
-                    { label: '下架', value: 2 }
+                    { label: '下架', value: 2 },
+                    { label: '已发货', value: 3 },
                     // ...
                 ]
             }
@@ -204,7 +205,8 @@ export let ordersView: View = {
                 dataSource: [ // contains the same values as the "status" field provides
                     { label: '已提交', value: 0 },
                     { label: '已支付', value: 1 },
-                    { label: '下架', value: 2 }
+                    { label: '下架', value: 2 },
+                    { label: '已发货', value: 3 },
                     // ...
                 ]
             }

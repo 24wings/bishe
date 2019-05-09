@@ -56,6 +56,26 @@ namespace Wings.Projects.Rcxh.Controllers
             this.db.SaveChanges();
             return true;
         }
+        /// <summary>
+        /// send
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        [HttpGet("[action]")]
+        public object send(int orderId)
+        {
+            var order = this.db.orders.Find(orderId);
+            if (order != null)
+            {
+                order.status = OrderStatus.Send;
+                this.db.SaveChanges();
+                return CommonRtn.Success(null, "成功");
+            }
+            else
+            {
+                return CommonRtn.Error("未知的订单");
+            }
+        }
 
         /// <summary>
         /// 移除数据

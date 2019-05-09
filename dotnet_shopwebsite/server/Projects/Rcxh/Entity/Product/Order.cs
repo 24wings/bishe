@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Wings.Projects.Rcxh.Entity.Product {
+namespace Wings.Projects.Rcxh.Entity.Product
+{
     /// <summary>
     /// 订单
     /// </summary>
-    [Table ("order")]
-    public class Order {
+    [Table("order")]
+    public class Order
+    {
         /// <summary>
         /// Id
         /// </summary>
@@ -70,7 +72,8 @@ namespace Wings.Projects.Rcxh.Entity.Product {
     /// <summary>
     /// 订单状态
     /// </summary>
-    public enum OrderStatus {
+    public enum OrderStatus
+    {
         /// <summary>
         /// 已提交
         /// </summary>
@@ -82,7 +85,8 @@ namespace Wings.Projects.Rcxh.Entity.Product {
         /// <summary>
         /// 作废
         /// </summary>
-        Fail
+        Fail,
+        Send,
 
     }
 }

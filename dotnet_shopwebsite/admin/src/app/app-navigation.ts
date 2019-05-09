@@ -28,7 +28,7 @@ export const navigation = [
     items: [
       { text: "分类管理", path: "/rcxh/admin/page/Wings.Projects.Rcxh.DVO.Product.ProductTagManage", icon: 'card' },
       { text: "产品管理", path: "/rcxh/admin/page/Wings.Projects.Rcxh.DVO.Product.ProductManage", icon: 'card' },
-      { text: "订单管理", path: "/rcxh/admin/page/Wings.Projects.Rcxh.DVO.Product.OrderManage", icon: 'card' },
+      { text: "订单管理", path: "/rcxh/admin/order", icon: 'card' },
     ]
   },
   {

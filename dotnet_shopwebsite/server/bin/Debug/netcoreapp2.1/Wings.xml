@@ -1248,6 +1248,13 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.send(System.Int32)">
+            <summary>
+            send
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
         <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.remove(Wings.Base.Common.DTO.DevExtremInput)">
             <summary>
             移除数据
