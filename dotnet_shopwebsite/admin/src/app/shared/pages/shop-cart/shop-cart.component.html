@@ -44,6 +44,10 @@
                     <a routerLink="/article">新闻</a>
                     <span class="sep">|</span>
                 </ng-container>
+                <ng-container>
+                    <a routerLink="/history-order">历史订单</a>
+                    <span class="sep">|</span>
+                </ng-container>
                 <ng-container *ngIf="state==View.Guest">
                     <a routerLink="/register">注册</a>
                     <span class="sep">|</span>
@@ -66,7 +70,7 @@
             <!--第二行 导航栏-->
             <div class="header-nav">
                 <ul>
-                    <li><a class="tagActive">我的订单</a></li>
+                    <li><a class="tagActive">购物车</a></li>
                 </ul>
             </div>
 
@@ -93,7 +97,7 @@
             </div>
         </div>
     </div>
-    <ws-view [view]="selectedDVO" *ngIf="selectedDVO"></ws-view>
+    <ws-view [view]="selectedDVO" *ngIf="selectedDVO" (onAction)="doAction($event)"></ws-view>
 
     <div class='shop2'>
         <!--选购引导-->

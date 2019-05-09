@@ -19,6 +19,7 @@ export class View {
   querys?: DevExpress.ui.dxFormSimpleItem[];
   allowCreate?: boolean
   allowDelete?: boolean
+  allowEdit?: boolean
 }
 
 export class TreeListView extends View {

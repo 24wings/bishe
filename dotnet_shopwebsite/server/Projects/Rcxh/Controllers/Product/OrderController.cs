@@ -13,19 +13,22 @@ using Wings.Projects.Rcxh.Controllers;
 using Wings.Projects.Rcxh.Entity.Product;
 using Wings.Projects.Rcxh.RBAC.Entity;
 
-namespace Wings.Projects.Rcxh.Controllers {
+namespace Wings.Projects.Rcxh.Controllers
+{
     /// <summary>
     /// 组织管理
     /// </summary>
-    [Route ("/api/Hk/order")]
-    public class OrderController : CurdController<Order> {
+    [Route("/api/Hk/order")]
+    public class OrderController : CurdController<Order>
+    {
         private RcxhContext db { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="_db"></param>
-        public OrderController (RcxhContext _db) : base (_db) {
+        public OrderController(RcxhContext _db) : base(_db)
+        {
             db = _db;
         }
         /// <summary>
@@ -33,10 +36,11 @@ namespace Wings.Projects.Rcxh.Controllers {
         /// </summary>
         /// <param name="options"></param>
         /// <returns></returns>
-        [HttpGet ("[action]")]
-        public object load ([FromQuery] DataSourceLoadOptions options) {
+        [HttpGet("[action]")]
+        public object load([FromQuery] DataSourceLoadOptions options)
+        {
             var query = from p in this.db.orders select p;
-            return DataSourceLoader.Load (query, options);
+            return DataSourceLoader.Load(query, options);
         }
         /// <summary>
         /// 增加数据
@@ -44,11 +48,12 @@ namespace Wings.Projects.Rcxh.Controllers {
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPost]
-        public object insert (DevExtremInput input) {
-            var p = new Order ();
-            JsonConvert.PopulateObject (input.values, p);
-            this.db.orders.Add (p);
-            this.db.SaveChanges ();
+        public object insert(DevExtremInput input)
+        {
+            var p = new Order();
+            JsonConvert.PopulateObject(input.values, p);
+            this.db.orders.Add(p);
+            this.db.SaveChanges();
             return true;
         }
 
@@ -58,8 +63,9 @@ namespace Wings.Projects.Rcxh.Controllers {
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpDelete]
-        public object remove (DevExtremInput input) {
-            return this.remove (input.key, this.db.orders);
+        public object remove(DevExtremInput input)
+        {
+            return this.remove(input.key, this.db.orders);
         }
 
         /// <summary>
@@ -68,9 +74,48 @@ namespace Wings.Projects.Rcxh.Controllers {
         /// <param name="input"></param>
         /// <returns></returns>
         [HttpPut]
-        public object update ([FromForm] DevExtremInput input) {
-            return this.update (input, this.db.orders);
+        public object update([FromForm] DevExtremInput input)
+        {
+            return this.update(input, this.db.orders);
 
+        }
+        /// <summary>
+        /// 支付订单
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        [HttpGet("[action]")]
+        public object payOrder(int orderId)
+        {
+            var order = this.db.orders.Find(orderId);
+            if (order != null)
+            {
+                order.status = OrderStatus.Pay;
+                this.db.SaveChanges();
+                return CommonRtn.Success(null, "购买成功");
+            }
+            else
+            {
+                return CommonRtn.Error("购买失败");
+
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
+        [HttpGet("[action]")]
+        public object loadPay([FromQuery] DataSourceLoadOptions options)
+        {
+            var query = from p in this.db.orders where p.status == OrderStatus.Pay select p;
+            return DataSourceLoader.Load(query, options);
+        }
+        [HttpGet("[action]")]
+        public object loadSubmit([FromQuery] DataSourceLoadOptions options)
+        {
+            var query = from p in this.db.orders where p.status == OrderStatus.Submit select p;
+            return DataSourceLoader.Load(query, options);
         }
     }
 }

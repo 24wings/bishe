@@ -2,22 +2,20 @@ import { Component } from '@angular/core';
 import * as AspNetData from "devextreme-aspnet-data-nojquery";
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { myOrderView } from 'src/app/struct/product/order';
-import notify from "devextreme/ui/notify";
-import { confirm } from "devextreme/ui/dialog";
-import { MyHttpService } from '../../services/my-http.service';
+import { myOrderView, historyOrderView } from 'src/app/struct/product/order';
+
 enum View {
     Guest,
     User
 }
 @Component({
-    selector: "shop-cart",
-    templateUrl: "./shop-cart.component.html",
-    styleUrls: ["./shop-cart.component.css"]
+    selector: "history-order",
+    templateUrl: './history-order.component.html',
+    styleUrls: ['./history-order.component.css']
 })
-export class ShopCartComponent {
-    selectedDVO = myOrderView
-    constructor(private router: Router, private myHttp: MyHttpService) { }
+export class HistoryOrderComponent {
+    selectedDVO = historyOrderView
+    constructor(private router: Router) { }
     state = View.Guest;
     View = View;
     selectedTag;
@@ -78,21 +76,5 @@ export class ShopCartComponent {
 
         }
     }
-
-    async doAction($event) {
-        var result = await confirm("确定购买?", "确认");
-        if (result) {
-            await this.myHttp.Get("/api/Hk/order/payOrder?orderId=" + $event.data.id);
-            var dto = this.selectedDVO;
-            this.selectedDVO = null;
-            setTimeout(() => {
-                this.selectedDVO = dto;
-            }, 200);
-            console.log($event)
-
-        }
-
-    }
-
 
 }

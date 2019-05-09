@@ -34,7 +34,7 @@ export class AuthService {
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-  whiteList: string[] = ["login-form", "register", "", "/shop"]
+  whiteList: string[] = ["login-form", "register", "", "/shop", "/history"]
   constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {

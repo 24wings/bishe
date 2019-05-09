@@ -45,9 +45,10 @@ import { RcxhApiService } from './services/rcxh-api.service';
 import { WsRefTreeComponent } from './components/cells/ws-ref-tree/ws-ref-tree.component';
 import { WsImageCellComponent } from './components/cells/ws-image-cell/ws-image-cell.component';
 import { ArticleComponent } from './pages/article/article.component';
+import { HistoryOrderComponent } from './pages/history-order/history-order.component';
 
 
-const components = [WsRefTreeComponent, WsImageCellComponent, ArticleComponent]
+const components = [WsRefTreeComponent, WsImageCellComponent, ArticleComponent, HistoryOrderComponent]
 @NgModule({
   imports: [
     CommonModule,

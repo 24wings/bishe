@@ -1262,6 +1262,20 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.payOrder(System.Int32)">
+            <summary>
+            支付订单
+            </summary>
+            <param name="orderId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.loadPay(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
         <member name="T:Wings.Projects.Rcxh.Controllers.ProductController">
             <summary>
             组织管理

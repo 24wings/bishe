@@ -17,6 +17,7 @@ import { RegisterComponent } from './shared/components/register/register.compone
 import { ShopComponent } from './shared/pages/shop/shop.component';
 import { ShopCartComponent } from './shared/pages/shop-cart/shop-cart.component';
 import { ArticleComponent } from './shared/pages/article/article.component';
+import { HistoryOrderComponent } from './shared/pages/history-order/history-order.component';
 
 const routes: Routes = [
   { path: "rcxh", loadChildren: "./libs/rcxh/rcxh.module#RcxhModule" },
@@ -46,6 +47,7 @@ const routes: Routes = [
   },
   { path: "shop", component: ShopComponent, },
   { path: "shop-cart", component: ShopCartComponent, },
+  { path: "history-order", component: HistoryOrderComponent },
   { path: "article", component: ArticleComponent, },
   { path: "", redirectTo: "/shop", pathMatch: "full" },
   {
