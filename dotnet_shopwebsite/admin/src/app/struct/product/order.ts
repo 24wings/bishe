@@ -151,7 +151,7 @@ export let historyOrderView: View = {
     dataSource: new DataSource({
         store: AspNetData.createStore({
             key: "id",
-            loadUrl: environment.ip + "/api/Hk/order/loadPay",
+            loadUrl: environment.ip + "/api/Hk/order/loadHistory",
             insertUrl: environment.ip + "/api/Hk/order",
             updateUrl: environment.ip + "/api/Hk/order",
             deleteUrl: environment.ip + "/api/Hk/order",

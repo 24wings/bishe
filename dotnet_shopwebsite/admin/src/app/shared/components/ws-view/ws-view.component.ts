@@ -128,10 +128,12 @@ export class WsViewComponent {
   async deleteSelected() {
     var sure = await confirm("你确定要删除这些记录?", "提示");
     if (sure) {
-      this.dataGrid.instance.getSelectedRowKeys().forEach(keu => {
+      for (var keu of this.dataGrid.instance.getSelectedRowKeys()) {
+
         var key = (this.dataSource as CustomStore).key();
-        (this.dataSource as CustomStore).remove(key);
-      });
+        await (this.dataSource as DataSource).store().remove(keu);
+      }
+      (this.dataSource as DataSource).store().load();
     }
   }
 

@@ -1283,6 +1283,19 @@
             <param name="options"></param>
             <returns></returns>
         </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.loadSubmit(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wings.Projects.Rcxh.Controllers.OrderController.loadHistory(DevExtreme.AspNet.Mvc.DataSourceLoadOptions)">
+            <summary>
+            加载历史订单, 已支付,已发货
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Wings.Projects.Rcxh.Controllers.ProductController">
             <summary>
             组织管理

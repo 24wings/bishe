@@ -131,11 +131,27 @@ namespace Wings.Projects.Rcxh.Controllers
             var query = from p in this.db.orders where p.status == OrderStatus.Pay select p;
             return DataSourceLoader.Load(query, options);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <returns></returns>
         [HttpGet("[action]")]
         public object loadSubmit([FromQuery] DataSourceLoadOptions options)
         {
             var query = from p in this.db.orders where p.status == OrderStatus.Submit select p;
             return DataSourceLoader.Load(query, options);
+        }
+        /// <summary>
+        /// 加载历史订单, 已支付,已发货
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("[action]")]
+        public object loadHistory([FromQuery] DataSourceLoadOptions options)
+        {
+            var query = from p in this.db.orders where p.status == OrderStatus.Pay || p.status == OrderStatus.Send select p;
+            return DataSourceLoader.Load(query, options);
+
         }
     }
 }

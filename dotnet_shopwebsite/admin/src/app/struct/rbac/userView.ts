@@ -11,6 +11,7 @@ type EditorOptions = DevExpress.ui.dxTextBoxOptions;
 export let userView: View = {
   title: "用户管理界面",
   dvoFullName: "Wings.Projects.Rcxh.DVO.Rbac.UserManage",
+  allowDelete: true,
 
   dataSource: new DataSource({
     store: AspNetData.createStore({
